@@ -1,4 +1,5 @@
-<%@ page isELIgnored="false" %>
+<%@page isELIgnored="false"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <jsp:useBean id="userSTR" type="redSpott.model.User" scope="session" />
 <html lang="en">
@@ -34,6 +35,15 @@
 		<div class="userMenuit"><a href="newplaylist">New Playlists</a></div>
 		<div class="userMenuit"><a href="newsongs">Upload new songs</a></div>
 		<div class="userMenuit"><a href="logout">Logout</a></div>
+	</div>
+	<div class ="subtitle">Your playlists are here!</div>
+	<div class ="list">
+	<c:forEach var = "playlist" items="${userSTR.playlists}">
+		<div class = "playItem">${playlist.playlistName}</div>
+		<c:forEach var = "song" items="${playlist.songs}">
+			<div class = "playItem">${song.songName}</div>
+		</c:forEach>
+	</c:forEach>	
 	</div>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

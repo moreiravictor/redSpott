@@ -1,6 +1,6 @@
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
-<jsp:useBean id="userSTR" type="redSpott.model.User" scope="session" />
+<jsp:useBean id="userSTR" type="redSpott.model.User" scope="session"/>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -13,8 +13,7 @@
     <meta name="author" content="LayoutIt!">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <style></style>
+    <link href="css/style.css" rel="stylesheet">
 
   </head>
   <body>
@@ -23,18 +22,31 @@
 	<div class="row">
 		<div class="col-md-12" align="center">
 		<strong>Red Spot!</strong>
+		<h4>Create your playlist ${userSTR.getName()}</h4>	
 		</div>
 	</div>
-	<h4 align="center">
-		Welcome ${userSTR.getName()}
-	</h4>
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
+			<form role="form" action="createplaylist" method="POST">
+				<div class="form-group">
+					 
+					<label for="exampleInputPlaylistName">
+						Playlist name
+					</label>
+					<input type="text" class="form-control" id="exampleInputPlaylistName" name="txtPlaylistName">
+				</div>
+				<div class="subReg">
+				<button type="submit" class="btn btn-primary">
+					Create it
+				</button>
+				</div>
+			</form>
+		</div>
 	</div>
-	<div class="userMenu">
-		<div class="userMenuit"><a href="myplaylists">My Playlists</a></div>
-		<div class="userMenuit"><a href="newplaylist">New Playlists</a></div>
-		<div class="userMenuit"><a href="newsongs">Upload new songs</a></div>
-		<div class="userMenuit"><a href="logout">Logout</a></div>
-	</div>
+</div>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
