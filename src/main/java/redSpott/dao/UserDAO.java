@@ -2,6 +2,7 @@ package redSpott.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +14,9 @@ public class UserDAO {
 		this.datasource = datasource;
 	}
 	
-	public List<User> create(User user) {
+	public List<User> read(User user) {
 		try {
-			String SQL = "SELECT * FROM tblUser WHRE email = ? and password = ?";
+			String SQL = "SELECT * FROM tblUser WHERE email = ? and password = ?";
 			PreparedStatement stm = datasource.getConnection().prepareStatement(SQL);
 			stm.setString(1, user.getEmail());
 			stm.setString(2, user.getPassword());
@@ -36,6 +37,29 @@ public class UserDAO {
 		catch(Exception e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+	
+	public void create(User user) {
+		try {
+			String SQL = "INSERT INTO tblUser (name, email, password) values (?, ?, ?)";
+			PreparedStatement stm = datasource.getConnection().prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+			stm.setString(1, user.getName());
+			stm.setString(2, user.getEmail());
+			stm.setString(3, user.getPassword());
+			int res = stm.executeUpdate();
+			
+			if (res!=0) {
+				ResultSet rs = stm.getGeneratedKeys();
+				if(rs.next()) {
+					user.setId(rs.getInt(1));
+				}
+				rs.close();
+			}
+			stm.close();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

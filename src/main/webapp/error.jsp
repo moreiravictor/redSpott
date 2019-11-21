@@ -1,4 +1,6 @@
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
+<jsp:useBean id="errorSTR" type="java.lang.String" scope="request"/>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -22,34 +24,9 @@
 		<strong>Red Spot!</strong>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-2">
-		</div>
-		<div class="col-md-8">
-			<form role="form" action="loginservlet" method="POST">
-				<div class="form-group">
-					 
-					<label for="exampleInputEmail1">
-						Email address
-					</label>
-					<input type="email" class="form-control" id="exampleInputEmail1" name="txtEmail">
-				</div>
-				<div class="form-group">
-					 
-					<label for="exampleInputPassword1">
-						Password
-					</label>
-					<input type="password" class="form-control" id="exampleInputPassword1" name="txtPassword">
-				</div>
-				<div class="subReg">
-				<button type="submit" class="btn btn-primary">
-					Submit
-				</button>
-				<div class="registerText"> <a href="newuser">New user? Register here!</a></div>
-				</div>
-			</form>
-		</div>
-	</div>
+	<h4 align="center">
+		ERROR: ${errorSTR}
+	</h4>
 </div>
 
     <script src="js/jquery.min.js"></script>
