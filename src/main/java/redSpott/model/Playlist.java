@@ -10,5 +10,7 @@ import lombok.Setter;
 @Setter
 public class Playlist {
 	private String playlistName;
+	private int id;
+	private User user;
 	private List<Song> songs;
 }

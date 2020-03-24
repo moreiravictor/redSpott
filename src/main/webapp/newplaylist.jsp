@@ -1,4 +1,6 @@
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
+<jsp:useBean id="userSTR" type="redSpott.model.User" scope="session"/>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -20,32 +22,25 @@
 	<div class="row">
 		<div class="col-md-12" align="center">
 		<strong>Red Spot!</strong>
+		<h4>Create your playlist ${userSTR.getName()}</h4>	
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-2">
 		</div>
 		<div class="col-md-8">
-			<form role="form" action="loginservlet" method="POST">
+			<form role="form" action="createplaylist" method="POST">
 				<div class="form-group">
 					 
-					<label for="exampleInputEmail1">
-						Email address
+					<label for="exampleInputPlaylistName">
+						Playlist name
 					</label>
-					<input type="email" class="form-control" id="exampleInputEmail1" name="txtEmail">
-				</div>
-				<div class="form-group">
-					 
-					<label for="exampleInputPassword1">
-						Password
-					</label>
-					<input type="password" class="form-control" id="exampleInputPassword1" name="txtPassword">
+					<input type="text" class="form-control" id="exampleInputPlaylistName" name="txtPlaylistName">
 				</div>
 				<div class="subReg">
 				<button type="submit" class="btn btn-primary">
-					Submit
+					Create it
 				</button>
-				<div class="registerText"> <a href="newuser">New user? Register here!</a></div>
 				</div>
 			</form>
 		</div>

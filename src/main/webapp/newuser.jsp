@@ -26,7 +26,14 @@
 		<div class="col-md-2">
 		</div>
 		<div class="col-md-8">
-			<form role="form" action="loginservlet" method="POST">
+			<form role="form" action="register" method="POST">
+				<div class="form-group">
+					 
+					<label for="exampleInputName">
+						Name
+					</label>
+					<input type="text" class="form-control" id="exampleInputName" name="txtName">
+				</div>
 				<div class="form-group">
 					 
 					<label for="exampleInputEmail1">
@@ -43,9 +50,8 @@
 				</div>
 				<div class="subReg">
 				<button type="submit" class="btn btn-primary">
-					Submit
+					Register
 				</button>
-				<div class="registerText"> <a href="newuser">New user? Register here!</a></div>
 				</div>
 			</form>
 		</div>
